@@ -28,7 +28,7 @@ Args:
 
 `-o`: output path to move similar images
 
-`-s`: hash size (default=32)
+`-s`: hash size (default=16)
 
 `-t`: threshold percent value for detection from 0 to 100, where 0 is absolute similarity of hashes (only nearly identical images will be moved)
 
