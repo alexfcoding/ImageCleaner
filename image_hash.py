@@ -161,4 +161,4 @@ clean_folder(args['input_folder'], args['output_folder'], args['hash_size'], arg
 # cv2.waitKey(0)
 #hash_generator_animation(input_frame, 512, 512)
 
-#Example: python image_hash.py -i images/input_images -o images/output_images -s 16 -t 85
+#Example: python image_hash.py -i images/input_images -o images/output_images -s 16 -t 33
