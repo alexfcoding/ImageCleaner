@@ -155,8 +155,6 @@ def clean_folder(input_folder, output_folder, hash_size, threshold):
 clean_folder(args['input_folder'], args['output_folder'], args['hash_size'], args['threshold'])
 
 #input_frame = cv2.imread(f"images/harold.jpg")
-#input_frame = cv2.imread(f"images/car/car1066.jpg")
-
 #bits_list, outputHash = generate_hash(input_frame, 16)
 
 # cv2.imshow("hash", outputHash)
@@ -164,5 +162,3 @@ clean_folder(args['input_folder'], args['output_folder'], args['hash_size'], arg
 #hash_generator_animation(input_frame, 512, 512)
 
 #Example: python image_hash.py -i images/input_images -o images/output_images -s 16 -t 85
-
-# TODO: Replace pixel threshold with percent of similarity

@@ -14,6 +14,8 @@ Cleans similar or dublicate images from folder using perceptual image hashing wi
 
 ## How to run
 
+Tested with Python 3.8.2, OpenCV 4.3.0, Ubuntu 20.04 LTS
+
 Folder `input_images` contains 11 objects in 186 image variations created by YOLO neural detector from video
 
 This example will leave all unique 11 objects in folder, other will be moved to `output_images`: 
@@ -32,7 +34,7 @@ Args:
 
 Note: both hash size and threshold values affect on detection quality
 
-###Similar images search:
+### Similar images search:
 ![](assets/search_similar.gif)
 
 ### Moving similar images to another folder (right column) leaving only unique (left column):
