@@ -9,7 +9,7 @@ ap.add_argument("-i", "--input_folder", type=str, required=True,
 				help="folder to clean similar images")
 ap.add_argument("-o", "--output_folder", type=str, required=True,
 				help="folder to move similar images")
-ap.add_argument("-s", "--hash_size", type=int, default=32,
+ap.add_argument("-s", "--hash_size", type=int, default=16,
 				help="hash size")
 ap.add_argument("-t", "--threshold", type=int, required=True,
 				help="threshold for detecting similar images")
@@ -135,12 +135,12 @@ def clean_folder(input_folder, output_folder, hash_size, threshold):
 				im_h2 = cv2.hconcat([cv2.resize(hashed_frame, (450, 450)), cv2.resize(hashed_second_frame, (450, 450))])
 				im_v = cv2.vconcat([im_h, im_h2])
 
-				if (sum_diff < threshold):
+				if (sum_diff <= hash_size * hash_size * threshold / 100):
 					Path(f"{input_folder}/{files[k]}").rename(f"{output_folder}/{files[k]}")
 					print(f"Deleted {k} element ({files[k]}) of {list_length}")
 					del files[k]
 					dublicate_count += 1
-					cv2.putText(im_v, f"FOUND SIMILAR", (5, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2, lineType=cv2.LINE_AA)
+					# cv2.putText(im_v, f"FOUND SIMILAR", (5, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2, lineType=cv2.LINE_AA)
 				else:					
 					k += 1
 
@@ -163,6 +163,6 @@ clean_folder(args['input_folder'], args['output_folder'], args['hash_size'], arg
 # cv2.waitKey(0)
 #hash_generator_animation(input_frame, 512, 512)
 
-#Example: python image_hash.py -i images/input_images -o images/output_images -s 16 -t 60
+#Example: python image_hash.py -i images/input_images -o images/output_images -s 16 -t 85
 
 # TODO: Replace pixel threshold with percent of similarity
