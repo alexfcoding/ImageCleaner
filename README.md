@@ -8,7 +8,7 @@ Cleans similar or duplicate images from folder using perceptual image hashing wi
 - Reducing size of each image to NxN pixels (set by user)
 - Converting to grayscale
 - Calculating the mean of all color values
-- Creating a new image (hash) based on the average. Setting the color of each pixel to black if the NxN matrix value is above average, and to white otherwise
+- Setting the color of each pixel to black if the NxN matrix value is above average, and to white otherwise
 - [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance): comparing hashes with each other and count the number of different pixels
 - The image is considered similar and moved from the folder if hamming distance is less than a threshold set by user
 
@@ -18,9 +18,9 @@ Tested with Python 3.8.2, OpenCV 4.3.0, Ubuntu 20.04 LTS
 
 Folder `input_images` contains 11 objects in 186 image variations created by YOLO neural detector from video
 
-This example will leave all unique 11 objects in the folder, the rest will be moved to `output_images`: 
+This example will leave all unique 11 objects in the folder, the rest will be moved to `similar_images`: 
 
-`python image_hash.py -i images/input_images -o images/output_images -s 16 -t 33`
+`python image_hash.py -i images/input_images -o images/similar_images -s 16 -t 33`
 
 Args:
 
